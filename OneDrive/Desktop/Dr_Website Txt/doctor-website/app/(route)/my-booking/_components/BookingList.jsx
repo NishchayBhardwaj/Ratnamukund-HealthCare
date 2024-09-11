@@ -1,0 +1,62 @@
+"use client"
+import React from 'react';
+import Image from 'next/image'; // For handling images in Next.js
+import { MapPin, Calendar, Clock } from 'lucide-react'; // For icons
+import { Button } from "@/components/ui/button"; // Assuming you have a custom Button component
+import moment from 'moment'; // For date formatting
+import GlobalApi from '@/app/_utils/GlobalApi';
+import { useRouter } from 'next/navigation'; // Import useRouter
+
+function BookingList({ bookingList, expired }) {
+    const router = useRouter(); // Initialize useRouter
+
+    const handleCancelAppointment = async (id) => {
+        try {
+            // Call the cancel appointment function from GlobalApi
+            await GlobalApi.cancelAppointment(id);
+
+            // Refresh the current page to update the booking list
+            router.refresh();
+        } catch (error) {
+            console.error('Failed to cancel the appointment:', error);
+        }
+    };
+
+    return (
+        <div>
+            {bookingList && bookingList.map((item, index) => (
+                <div key={index} className='flex gap-4 items-center border p-5 m-3 rounded-lg'>
+                    
+                    <div className='flex flex-col gap-2 w-full'>
+                        <h2 className='font-bold text-[18px] items-center flex justify-between'>
+                            {item.attributes.doctor.data.attributes.Name}
+                            {!expired && (
+                            <Button
+                                variant='outline'
+                                className='text-primary border-primary'
+                                onClick={() => handleCancelAppointment(item.id)}
+                            >
+                                Cancel Appointment
+                            </Button>
+                            )}
+                        </h2>
+                        <h2 className='flex gap-2 text-gray-500'>
+                            <MapPin className='text-primary h-5 w-5' />
+                            {item.attributes.doctor.data.attributes.Address}
+                        </h2>
+                        <h2 className='flex gap-2'>
+                            <Calendar className='text-primary h-5 w-5' />
+                            Appointment on: {moment(item.attributes.Date).format('DD-MM-YYYY')}
+                        </h2>
+                        <h2 className='flex gap-2'>
+                            <Clock className='text-primary h-5 w-5' />
+                            Time: {item.attributes.Time}
+                        </h2>
+                    </div>
+                </div>
+            ))}
+        </div>
+    )
+}
+
+export default BookingList;
