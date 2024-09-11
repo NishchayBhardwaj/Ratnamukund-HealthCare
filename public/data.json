@@ -1,0 +1,45 @@
+{
+    "doctors": [
+      {
+        "name": "Dr. Shreepad Bhat",
+        "clinics": [
+          {
+            "header": "Morning Clinic",
+            "timings": ["8:00 - 10:30 AM"],
+            "clinic name": "Ratnamukund Healthcare Foundation",
+            "location": "Sai Syaji Bus Stop, Warje"
+          },
+          {
+            "header": "Evening Clinic",
+            "timings": ["6:30 PM - 9:30 PM"],
+            "clinic name": "Shreeyog Clinic",
+            "location": "Flat 101, Laxmikrupa Apartment, Behind Sujata Mastani, Sinhgad Road, Opposite Ranka Jewellery, Hingne Khurd, Pune, Maharashtra, 411051"
+          }
+        ]
+      },
+      {
+        "name": "Dr. Shilpa Bhat",
+        "clinics": [
+          {
+            "header": "Clinic 1",
+            "timings": ["8:00 AM - 9:00 AM", "Evening by appointment"],
+            "clinic name": "Ratnamukund Healthcare Foundation",
+            "location": "Sai Syaji Bus Stop, Warje"
+          },
+          {
+            "header": "Clinic 2",
+            "timings": ["11:00 AM - 1:00 PM"],
+            "clinic name": "Shreeyog Clinic",
+            "location": "Flat 101, Laxmikrupa Apartment, Behind Sujata Mastani, Sinhgad Road, Opposite Ranka Jewellery, Hingne Khurd, Pune, Maharashtra, 411051"
+          },
+          {
+            "header": "Clinic 3",
+            "timings": ["9:00 AM - 11:00 AM"],
+            "clinic name": "Shashwat Hospital",
+            "location": "Pune"
+          }
+        ]
+      }
+    ]
+  }
+  
